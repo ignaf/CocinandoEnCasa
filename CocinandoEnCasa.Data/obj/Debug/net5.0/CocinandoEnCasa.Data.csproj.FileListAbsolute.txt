@@ -1,0 +1,15 @@
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\CocinandoEnCasa.Data.deps.json
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\CocinandoEnCasa.Data.runtimeconfig.json
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\CocinandoEnCasa.Data.runtimeconfig.dev.json
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\CocinandoEnCasa.Data.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\ref\CocinandoEnCasa.Data.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\bin\Debug\net5.0\CocinandoEnCasa.Data.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.csproj.AssemblyReference.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.AssemblyInfoInputs.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.AssemblyInfo.cs
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.csproj.CoreCompileInputs.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\ref\CocinandoEnCasa.Data.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Data\obj\Debug\net5.0\CocinandoEnCasa.Data.genruntimeconfig.cache
