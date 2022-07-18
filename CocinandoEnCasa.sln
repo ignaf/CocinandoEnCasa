@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Data", "Coc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Web", "CocinandoEnCasa.Web\CocinandoEnCasa.Web.csproj", "{EA7944A3-6BBD-48FD-9D78-45A448395AF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Services", "CocinandoEnCasa.Services\CocinandoEnCasa.Services.csproj", "{1047520A-7682-4301-8C8E-A9E1A4E39E71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Repositories", "CocinandoEnCasa.Repositories\CocinandoEnCasa.Repositories.csproj", "{4264BE79-563C-4438-8CE0-6A543F5DA32C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{EA7944A3-6BBD-48FD-9D78-45A448395AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7944A3-6BBD-48FD-9D78-45A448395AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7944A3-6BBD-48FD-9D78-45A448395AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1047520A-7682-4301-8C8E-A9E1A4E39E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1047520A-7682-4301-8C8E-A9E1A4E39E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1047520A-7682-4301-8C8E-A9E1A4E39E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1047520A-7682-4301-8C8E-A9E1A4E39E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

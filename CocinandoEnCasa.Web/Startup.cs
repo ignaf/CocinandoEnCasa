@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CocinandoEnCasa.Data.models;
+
 
 namespace CocinandoEnCasa.Web
 {
@@ -24,6 +26,7 @@ namespace CocinandoEnCasa.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<_CocinandoEnCasaDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
