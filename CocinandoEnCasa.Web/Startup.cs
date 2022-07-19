@@ -9,7 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CocinandoEnCasa.Data.models;
-
+using CocinandoEnCasa.Services;
+using CocinandoEnCasa.Services.Implementations;
+using CocinandoEnCasa.Repositories;
+using CocinandoEnCasa.Repositories.Implementations;
 
 namespace CocinandoEnCasa.Web
 {
@@ -27,6 +30,9 @@ namespace CocinandoEnCasa.Web
         {
             services.AddControllersWithViews();
             services.AddTransient<_CocinandoEnCasaDbContext>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

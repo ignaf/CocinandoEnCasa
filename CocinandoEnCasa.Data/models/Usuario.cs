@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -7,6 +9,7 @@ namespace CocinandoEnCasa.Data.models
 {
     public partial class Usuario
     {
+
         public Usuario()
         {
             Calificaciones = new HashSet<Calificacione>();

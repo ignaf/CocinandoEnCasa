@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Data", "CocinandoEnCasa.Data\CocinandoEnCasa.Data.csproj", "{9E7DF4D7-81A2-4C8A-88BA-DDAB815940C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CocinandoEnCasa.Data", "CocinandoEnCasa.Data\CocinandoEnCasa.Data.csproj", "{9E7DF4D7-81A2-4C8A-88BA-DDAB815940C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Web", "CocinandoEnCasa.Web\CocinandoEnCasa.Web.csproj", "{EA7944A3-6BBD-48FD-9D78-45A448395AF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CocinandoEnCasa.Web", "CocinandoEnCasa.Web\CocinandoEnCasa.Web.csproj", "{EA7944A3-6BBD-48FD-9D78-45A448395AF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Services", "CocinandoEnCasa.Services\CocinandoEnCasa.Services.csproj", "{1047520A-7682-4301-8C8E-A9E1A4E39E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CocinandoEnCasa.Services", "CocinandoEnCasa.Services\CocinandoEnCasa.Services.csproj", "{1047520A-7682-4301-8C8E-A9E1A4E39E71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.Repositories", "CocinandoEnCasa.Repositories\CocinandoEnCasa.Repositories.csproj", "{4264BE79-563C-4438-8CE0-6A543F5DA32C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CocinandoEnCasa.Repositories", "CocinandoEnCasa.Repositories\CocinandoEnCasa.Repositories.csproj", "{4264BE79-563C-4438-8CE0-6A543F5DA32C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocinandoEnCasa.ViewModels", "CocinandoEnCasa.ViewModels\CocinandoEnCasa.ViewModels.csproj", "{D71F3CF5-D4CB-4EE8-93AF-CD165B6405EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4264BE79-563C-4438-8CE0-6A543F5DA32C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71F3CF5-D4CB-4EE8-93AF-CD165B6405EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71F3CF5-D4CB-4EE8-93AF-CD165B6405EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71F3CF5-D4CB-4EE8-93AF-CD165B6405EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71F3CF5-D4CB-4EE8-93AF-CD165B6405EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

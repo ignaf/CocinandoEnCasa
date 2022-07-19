@@ -1,0 +1,43 @@
+﻿@model UsuarioViewModel
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <p>@ViewBag.Msg</p>
+    <form action="/Usuarios/Registro" method="post">
+        <div>
+            Nombre: <input asp-for="Nombre" type="text" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            Email: <input asp-for="Email" type="email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            Contraseña: <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            Repetir Contraseña: <input asp-for="RepitePassword" type="password" />
+            <span asp-validation-for="RepitePassword" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            Tipo de Usuario: <br />
+            Cocinero: <input asp-for="Perfil" type="radio" name="Perfil" value="1" />
+            <br />
+            Comensal: <input asp-for="Perfil" type="radio" name="Perfil" value="2" />
+            <br />
+            <span asp-validation-for="Perfil" class="text-danger"></span>
+
+        </div>
+
+        <input type="submit" name="Registrar" value="Registrar" />
+    </form>

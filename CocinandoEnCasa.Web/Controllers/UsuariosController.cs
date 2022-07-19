@@ -1,4 +1,6 @@
 ﻿using CocinandoEnCasa.Data.models;
+using CocinandoEnCasa.Services;
+using CocinandoEnCasa.ViewModels;
 using CocinandoEnCasa.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -8,10 +10,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace CocinandoEnCasa.Web.Controllers
 {
     public class UsuariosController : Controller
     {
+
+        private IUsuarioService _usuarioService;
+
+        public UsuariosController(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
  
 
         public IActionResult Default()
@@ -25,10 +35,25 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registro(Usuario usuario)
+        public IActionResult Registro(UsuarioViewModel usuariovm)
         {
-            /*servicioUsuario.registrar(usuario)*/
-            return RedirectToAction(nameof(Default));
+            if (_usuarioService.CompararMails(usuariovm.Email))
+            {
+                ViewBag.Msg = "La dirección de Email ya se encuentra registrada";
+                return View();
+            }
+            if (ModelState.IsValid)
+            {
+                Usuario usuario = new Usuario();
+                usuario.Nombre = usuariovm.Nombre;
+                usuario.Email = usuariovm.Email;
+                usuario.Perfil = usuariovm.Perfil;
+                usuario.Password = usuariovm.Password;
+                usuario.FechaRegistracion = DateTime.Parse(DateTime.Now.ToString());
+                _usuarioService.Registrar(usuario);
+                return RedirectToAction(nameof(Login));
+            }
+            return RedirectToAction(nameof(Registro));
         }
 
         public IActionResult Login()

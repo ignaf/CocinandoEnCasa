@@ -1,0 +1,17 @@
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.csproj.AssemblyReference.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.AssemblyInfoInputs.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.AssemblyInfo.cs
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.csproj.CoreCompileInputs.cache
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Services.deps.json
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Services.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\ref\CocinandoEnCasa.Services.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Services.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Data.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Repositories.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Data.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.Repositories.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.csproj.CopyComplete
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\ref\CocinandoEnCasa.Services.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.pdb
