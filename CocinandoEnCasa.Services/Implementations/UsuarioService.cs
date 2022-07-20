@@ -33,5 +33,10 @@ namespace CocinandoEnCasa.Services.Implementations
             _usuarioRepo.Registrar(usuario);
             _usuarioRepo.SaveChanges();
         }
+
+        public Usuario VerificarLogin(string email, string password)
+        {
+            return _usuarioRepo.BuscarMailYPassword(email, password);
+        }
     }
 }

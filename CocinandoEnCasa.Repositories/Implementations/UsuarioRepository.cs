@@ -16,6 +16,11 @@ namespace CocinandoEnCasa.Repositories.Implementations
             _ctx = ctx;
         }
 
+        public Usuario BuscarMailYPassword(string email, string password)
+        {
+            return _ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Password == password);
+        }
+
         public List<string> ObtenerMails()
         {
             List<String> listaMails = new List<String>();

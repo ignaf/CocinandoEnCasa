@@ -11,5 +11,6 @@ namespace CocinandoEnCasa.Services
     {
         public void Registrar(Usuario usuario);
         public bool CompararMails(string email);
+        public Usuario VerificarLogin(string email, string password);
     }
 }

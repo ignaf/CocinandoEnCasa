@@ -12,5 +12,7 @@ namespace CocinandoEnCasa.Repositories
         public void Registrar(Usuario usuario);
         public List<String> ObtenerMails();
         public void SaveChanges();
+
+        public Usuario BuscarMailYPassword(string email, string password);
     }
 }

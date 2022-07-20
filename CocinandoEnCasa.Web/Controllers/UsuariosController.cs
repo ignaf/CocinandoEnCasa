@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 
 namespace CocinandoEnCasa.Web.Controllers
@@ -62,10 +63,30 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Usuario usuario)
+        public IActionResult Login(string email, string password)
         {
-            /*servicioUsuario.login(usuario)*/
-            return RedirectToAction(nameof(Default)); /*redirigir al menu correspondiente*/
+            Usuario usuario = _usuarioService.VerificarLogin(email, password);
+
+            if (usuario != null)
+            {
+                HttpContext.Session.SetString("Usuario", usuario.Email);
+                if (usuario.Perfil == 1)
+                {
+                    HttpContext.Session.SetString("Tipo", "Cocinero");
+
+                }
+                else if(usuario.Perfil == 2)
+                {
+                    HttpContext.Session.SetString("Tipo", "Comensal");
+
+                }
+                return RedirectToAction(nameof(Registro)); //
+            }
+            else
+            {
+                ViewBag.Msg="Usuario o contraseña incorrectos";
+                return View();
+            }
         }
 
         public IActionResult Logout()

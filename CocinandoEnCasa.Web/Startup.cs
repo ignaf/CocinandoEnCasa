@@ -32,6 +32,12 @@ namespace CocinandoEnCasa.Web
             services.AddTransient<_CocinandoEnCasaDbContext>();
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".CenC.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1200);
+            });
 
         }
 
@@ -53,7 +59,10 @@ namespace CocinandoEnCasa.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
