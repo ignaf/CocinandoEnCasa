@@ -393,3 +393,5 @@ C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\n
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\net5.0\CocinandoEnCasa.Web.genruntimeconfig.cache
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\net5.0\Razor\Views\Usuarios\Default.cshtml.g.cs
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\net5.0\CocinandoEnCasa.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\net5.0\Razor\Views\Cocinero\CrearReceta.cshtml.g.cs
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Web\obj\Debug\net5.0\Razor\Views\Cocinero\ListarRecetas.cshtml.g.cs

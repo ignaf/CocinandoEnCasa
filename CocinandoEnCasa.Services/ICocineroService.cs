@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace CocinandoEnCasa.Services
 {
-    public interface IUsuarioService
+    public interface ICocineroService
     {
-        public void Registrar(UsuarioViewModel usuariovm);
-        public bool CompararMails(string email);
-        public Usuario VerificarLogin(string email, string password);
+        public List<TipoReceta> ObtenerTiposReceta();
+        public void RegistrarReceta(RecetaViewModel recetavm);
     }
 }

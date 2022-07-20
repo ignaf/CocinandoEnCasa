@@ -9,7 +9,8 @@
       "CocinandoEnCasa.Services/1.0.0": {
         "dependencies": {
           "CocinandoEnCasa.Data": "1.0.0",
-          "CocinandoEnCasa.Repositories": "1.0.0"
+          "CocinandoEnCasa.Repositories": "1.0.0",
+          "CocinandoEnCasa.ViewModels": "1.0.0"
         },
         "runtime": {
           "CocinandoEnCasa.Services.dll": {}
@@ -1359,6 +1360,11 @@
         "runtime": {
           "CocinandoEnCasa.Repositories.dll": {}
         }
+      },
+      "CocinandoEnCasa.ViewModels/1.0.0": {
+        "runtime": {
+          "CocinandoEnCasa.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -2214,6 +2220,11 @@
       "sha512": ""
     },
     "CocinandoEnCasa.Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CocinandoEnCasa.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

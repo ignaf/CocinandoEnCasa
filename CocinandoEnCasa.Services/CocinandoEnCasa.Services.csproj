@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CocinandoEnCasa.Data\CocinandoEnCasa.Data.csproj" />
     <ProjectReference Include="..\CocinandoEnCasa.Repositories\CocinandoEnCasa.Repositories.csproj" />
+    <ProjectReference Include="..\CocinandoEnCasa.ViewModels\CocinandoEnCasa.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

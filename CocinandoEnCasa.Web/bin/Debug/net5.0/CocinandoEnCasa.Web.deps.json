@@ -1649,7 +1649,8 @@
       "CocinandoEnCasa.Services/1.0.0": {
         "dependencies": {
           "CocinandoEnCasa.Data": "1.0.0",
-          "CocinandoEnCasa.Repositories": "1.0.0"
+          "CocinandoEnCasa.Repositories": "1.0.0",
+          "CocinandoEnCasa.ViewModels": "1.0.0"
         },
         "runtime": {
           "CocinandoEnCasa.Services.dll": {}

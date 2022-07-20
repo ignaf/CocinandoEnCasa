@@ -1,0 +1,33 @@
+﻿@model RecetaViewModel
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<partial name="_ValidationScriptsPartial" />
+
+<form action="/Cocinero/CrearReceta" method="post">
+    <div>
+        Nombre: <input asp-for="Nombre" type="text" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div>
+        Tiempo de cocción(minutos): <input asp-for="TiempoCoccion" type="number" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div>
+        Descripción: <input asp-for="Descripcion" type="text" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div>
+        Ingredientes: <input asp-for="Ingredientes" type="text" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div>
+        <select asp-for="IdTipoReceta">
+            @foreach (var tipo in ViewBag.TiposReceta)
+            {
+                <option value="@tipo.IdTipoReceta">@tipo.Nombre</option>
+            }
+
+        </select>
+    </div>
+    <input type="submit" name="Registrar" value="Crear" />
+</form>

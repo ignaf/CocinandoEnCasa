@@ -1871,6 +1871,16 @@
         "runtime": {
           "bin/placeholder/CocinandoEnCasa.Repositories.dll": {}
         }
+      },
+      "CocinandoEnCasa.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CocinandoEnCasa.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CocinandoEnCasa.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -6545,12 +6555,18 @@
       "type": "project",
       "path": "../CocinandoEnCasa.Repositories/CocinandoEnCasa.Repositories.csproj",
       "msbuildProject": "../CocinandoEnCasa.Repositories/CocinandoEnCasa.Repositories.csproj"
+    },
+    "CocinandoEnCasa.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../CocinandoEnCasa.ViewModels/CocinandoEnCasa.ViewModels.csproj",
+      "msbuildProject": "../CocinandoEnCasa.ViewModels/CocinandoEnCasa.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "CocinandoEnCasa.Data >= 1.0.0",
-      "CocinandoEnCasa.Repositories >= 1.0.0"
+      "CocinandoEnCasa.Repositories >= 1.0.0",
+      "CocinandoEnCasa.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6585,6 +6601,9 @@
             },
             "C:\\Users\\ignaa\\source\\repos\\CocinandoEnCasa.Data\\CocinandoEnCasa.Repositories\\CocinandoEnCasa.Repositories.csproj": {
               "projectPath": "C:\\Users\\ignaa\\source\\repos\\CocinandoEnCasa.Data\\CocinandoEnCasa.Repositories\\CocinandoEnCasa.Repositories.csproj"
+            },
+            "C:\\Users\\ignaa\\source\\repos\\CocinandoEnCasa.Data\\CocinandoEnCasa.ViewModels\\CocinandoEnCasa.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\ignaa\\source\\repos\\CocinandoEnCasa.Data\\CocinandoEnCasa.ViewModels\\CocinandoEnCasa.ViewModels.csproj"
             }
           }
         }

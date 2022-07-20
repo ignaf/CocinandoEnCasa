@@ -31,7 +31,9 @@ namespace CocinandoEnCasa.Web
             services.AddControllersWithViews();
             services.AddTransient<_CocinandoEnCasaDbContext>();
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICocineroService, CocineroService>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IRecetaRepository, RecetaRepository>();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {

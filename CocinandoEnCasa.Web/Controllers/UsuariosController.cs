@@ -45,13 +45,7 @@ namespace CocinandoEnCasa.Web.Controllers
             }
             if (ModelState.IsValid)
             {
-                Usuario usuario = new Usuario();
-                usuario.Nombre = usuariovm.Nombre;
-                usuario.Email = usuariovm.Email;
-                usuario.Perfil = usuariovm.Perfil;
-                usuario.Password = usuariovm.Password;
-                usuario.FechaRegistracion = DateTime.Parse(DateTime.Now.ToString());
-                _usuarioService.Registrar(usuario);
+                _usuarioService.Registrar(usuariovm);
                 return RedirectToAction(nameof(Login));
             }
             return RedirectToAction(nameof(Registro));
@@ -91,6 +85,7 @@ namespace CocinandoEnCasa.Web.Controllers
 
         public IActionResult Logout()
         {
+            HttpContext.Session.Clear();
             return RedirectToAction(nameof(Default)); 
         }
 

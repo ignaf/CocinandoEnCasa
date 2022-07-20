@@ -15,3 +15,5 @@ C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\De
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.dll
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\ref\CocinandoEnCasa.Services.dll
 C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\obj\Debug\net5.0\CocinandoEnCasa.Services.pdb
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.ViewModels.dll
+C:\Users\ignaa\source\repos\CocinandoEnCasa.Data\CocinandoEnCasa.Services\bin\Debug\net5.0\CocinandoEnCasa.ViewModels.pdb

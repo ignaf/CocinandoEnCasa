@@ -1,5 +1,6 @@
 ﻿using CocinandoEnCasa.Data.models;
 using CocinandoEnCasa.Repositories;
+using CocinandoEnCasa.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,14 @@ namespace CocinandoEnCasa.Services.Implementations
             }
         }
 
-        public void Registrar(Usuario usuario)
+        public void Registrar(UsuarioViewModel usuariovm)
         {
+            Usuario usuario = new Usuario();
+            usuario.Nombre = usuariovm.Nombre;
+            usuario.Email = usuariovm.Email;
+            usuario.Perfil = usuariovm.Perfil;
+            usuario.Password = usuariovm.Password;
+            usuario.FechaRegistracion = DateTime.Parse(DateTime.Now.ToString());
             _usuarioRepo.Registrar(usuario);
             _usuarioRepo.SaveChanges();
         }

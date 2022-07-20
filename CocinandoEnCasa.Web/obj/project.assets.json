@@ -2015,7 +2015,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "CocinandoEnCasa.Data": "1.0.0",
-          "CocinandoEnCasa.Repositories": "1.0.0"
+          "CocinandoEnCasa.Repositories": "1.0.0",
+          "CocinandoEnCasa.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/CocinandoEnCasa.Services.dll": {}
