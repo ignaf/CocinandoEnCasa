@@ -10,7 +10,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-
+using System.Web;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CocinandoEnCasa.Web.Controllers
 {
@@ -23,7 +27,7 @@ namespace CocinandoEnCasa.Web.Controllers
         {
             _usuarioService = usuarioService;
         }
- 
+
 
         public IActionResult Default()
         {
@@ -57,36 +61,54 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
+
             Usuario usuario = _usuarioService.VerificarLogin(email, password);
+            String rol = "";
+            if (usuario.Perfil == 1)
+            {
+                rol = "Cocinero";
+            }else if(usuario.Perfil == 2)
+            {
+                rol = "Comensal";
+            }
 
             if (usuario != null)
             {
-                HttpContext.Session.SetString("Usuario", usuario.Email);
-                if (usuario.Perfil == 1)
-                {
-                    HttpContext.Session.SetString("Tipo", "Cocinero");
 
-                }
-                else if(usuario.Perfil == 2)
-                {
-                    HttpContext.Session.SetString("Tipo", "Comensal");
+                var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name ,usuario.Nombre),
+                         new Claim("Email" ,usuario.Email),
+                          new Claim("IdUsuario" ,usuario.IdUsuario.ToString()),
+                          new Claim(ClaimTypes.Role, rol)
 
-                }
-                return RedirectToAction(nameof(Registro)); //
+                };
+                
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                return RedirectToAction(nameof(Home));
             }
             else
             {
-                ViewBag.Msg="Usuario o contraseña incorrectos";
+                ViewBag.Msg = "Usuario o contraseña incorrectos";
                 return View();
             }
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            HttpContext.Session.Clear();
-            return RedirectToAction(nameof(Default)); 
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction(nameof(Default));
+        }
+
+        [Authorize]
+        public IActionResult Home()
+        {
+            return View();
         }
 
     }

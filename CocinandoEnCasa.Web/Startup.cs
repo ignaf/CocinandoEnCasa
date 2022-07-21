@@ -13,6 +13,9 @@ using CocinandoEnCasa.Services;
 using CocinandoEnCasa.Services.Implementations;
 using CocinandoEnCasa.Repositories;
 using CocinandoEnCasa.Repositories.Implementations;
+using Microsoft.AspNetCore.Http;
+using CocinandoEnCasa.Web.Filters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CocinandoEnCasa.Web
 {
@@ -34,13 +37,13 @@ namespace CocinandoEnCasa.Web
             services.AddScoped<ICocineroService, CocineroService>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IRecetaRepository, RecetaRepository>();
-            services.AddDistributedMemoryCache();
-            services.AddSession(options =>
-            {
-                options.Cookie.Name = ".CenC.Session";
-                options.IdleTimeout = TimeSpan.FromSeconds(1200);
-            });
-
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(option =>
+                {
+                    option.LoginPath = "/Usuarios/Login";
+                    option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                    option.AccessDeniedPath = "/Usuarios/Default";
+                }); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,8 +66,6 @@ namespace CocinandoEnCasa.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
