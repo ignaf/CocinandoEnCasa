@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Home">Home</a>
                         </li>
+                        @if (User.IsInRole("Cocinero"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cocinero" asp-action="CrearReceta">Crear Receta</a>
+                            </li>
+                        }
+
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cocinero" asp-action="CrearReceta"></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cocinero" asp-action="ListarRecetas">Listar Recetas</a>
                         </li>
 
                         <li class="nav-item">

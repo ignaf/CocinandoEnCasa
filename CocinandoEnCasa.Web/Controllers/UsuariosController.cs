@@ -82,7 +82,8 @@ namespace CocinandoEnCasa.Web.Controllers
                         new Claim(ClaimTypes.Name ,usuario.Nombre),
                          new Claim("Email" ,usuario.Email),
                           new Claim("IdUsuario" ,usuario.IdUsuario.ToString()),
-                          new Claim(ClaimTypes.Role, rol)
+                          new Claim(ClaimTypes.Role, rol),
+                         // new Claim(ClaimTypes.UserData, usuario.IdUsuario.ToString())
 
                 };
                 

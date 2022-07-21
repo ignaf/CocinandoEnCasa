@@ -11,6 +11,6 @@ namespace CocinandoEnCasa.Services
     public interface ICocineroService
     {
         public List<TipoReceta> ObtenerTiposReceta();
-        public void RegistrarReceta(RecetaViewModel recetavm);
+        public void RegistrarReceta(RecetaViewModel recetavm, int idCocinero);
     }
 }

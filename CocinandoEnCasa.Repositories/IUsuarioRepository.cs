@@ -14,5 +14,8 @@ namespace CocinandoEnCasa.Repositories
         public void SaveChanges();
 
         public Usuario BuscarMailYPassword(string email, string password);
+
+      
+
     }
 }

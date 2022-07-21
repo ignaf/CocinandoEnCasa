@@ -22,7 +22,7 @@ namespace CocinandoEnCasa.Services.Implementations
             return _recetaRepo.ObtenerTiposReceta();
         }
 
-        public void RegistrarReceta(RecetaViewModel recetavm)
+        public void RegistrarReceta(RecetaViewModel recetavm, int idCocinero)
         {
             Receta receta = new Receta();
             receta.Nombre = recetavm.Nombre;
@@ -30,6 +30,7 @@ namespace CocinandoEnCasa.Services.Implementations
             receta.Descripcion = recetavm.Descripcion;
             receta.TiempoCoccion = recetavm.TiempoCoccion;
             receta.IdTipoReceta = recetavm.IdTipoReceta;
+            receta.IdCocinero = idCocinero;
             _recetaRepo.Registrar(receta);
             _recetaRepo.SaveChanges();
         }

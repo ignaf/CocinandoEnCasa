@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using CocinandoEnCasa.Repositories;
+using System.Security.Claims;
 
 namespace CocinandoEnCasa.Web.Controllers
 {
@@ -15,6 +17,7 @@ namespace CocinandoEnCasa.Web.Controllers
     public class CocineroController : Controller
     {
         private ICocineroService _cocineroService;
+        private IUsuarioRepository _usuarioRepo;
 
         public CocineroController(ICocineroService cocineroService)
         {
@@ -30,9 +33,13 @@ namespace CocinandoEnCasa.Web.Controllers
         [HttpPost]
         public ActionResult CrearReceta(RecetaViewModel recetavm)
         {
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
             if (ModelState.IsValid)
             {
-                _cocineroService.RegistrarReceta(recetavm);
+                _cocineroService.RegistrarReceta(recetavm, idUsuario);
                 return RedirectToAction(nameof(ListarRecetas));
             }
             return RedirectToAction(nameof(ListarRecetas));
@@ -40,6 +47,7 @@ namespace CocinandoEnCasa.Web.Controllers
 
         public ActionResult ListarRecetas()
         {
+            
             return View();
         }
     }

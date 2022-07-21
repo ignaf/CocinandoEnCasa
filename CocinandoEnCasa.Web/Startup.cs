@@ -34,6 +34,7 @@ namespace CocinandoEnCasa.Web
             services.AddTransient<_CocinandoEnCasaDbContext>();
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<ICocineroService, CocineroService>();
+            services.AddHttpContextAccessor();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IRecetaRepository, RecetaRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -42,7 +43,9 @@ namespace CocinandoEnCasa.Web
                     option.LoginPath = "/Usuarios/Login";
                     option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                     option.AccessDeniedPath = "/Usuarios/Default";
-                }); 
+                });
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
