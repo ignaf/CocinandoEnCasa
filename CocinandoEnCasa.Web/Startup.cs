@@ -14,7 +14,6 @@ using CocinandoEnCasa.Services.Implementations;
 using CocinandoEnCasa.Repositories;
 using CocinandoEnCasa.Repositories.Implementations;
 using Microsoft.AspNetCore.Http;
-using CocinandoEnCasa.Web.Filters;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CocinandoEnCasa.Web
