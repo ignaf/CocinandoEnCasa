@@ -10,6 +10,7 @@ namespace CocinandoEnCasa.ViewModels
     public class RecetaViewModel
     {
         [Required(ErrorMessage = "Campo obligatorio")]
+        [MaxLength(50, ErrorMessage ="El nombre excede el límite de 50 caracteres")]
         public string Nombre { get; set; }
         [Required(ErrorMessage = "Campo obligatorio")]
         public int TiempoCoccion { get; set; }

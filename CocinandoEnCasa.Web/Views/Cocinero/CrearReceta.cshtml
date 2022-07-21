@@ -10,15 +10,15 @@
     </div>
     <div>
         Tiempo de cocción(minutos): <input asp-for="TiempoCoccion" type="number" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+        <span asp-validation-for="TiempoCoccion" class="text-danger"></span>
     </div>
     <div>
-        Descripción: <input asp-for="Descripcion" type="text" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+        Descripción: <textarea asp-for="Descripcion" ></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
     <div>
-        Ingredientes: <input asp-for="Ingredientes" type="text" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+        Ingredientes: <textarea asp-for="Ingredientes"></textarea>
+        <span asp-validation-for="Ingredientes" class="text-danger"></span>
     </div>
     <div>
         <select asp-for="IdTipoReceta">
@@ -28,6 +28,7 @@
             }
 
         </select>
+        <span asp-validation-for="IdTipoReceta" class="text-danger"></span>
     </div>
     <input type="submit" name="Registrar" value="Crear" />
 </form>
