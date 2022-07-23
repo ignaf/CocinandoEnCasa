@@ -50,5 +50,30 @@ namespace CocinandoEnCasa.Web.Controllers
             
             return View();
         }
+
+        public ActionResult CrearEvento()
+        {
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
+            List<Receta> recetas = _cocineroService.ObtenerRecetas(idUsuario);
+            ViewBag.Recetas = recetas;
+            return View();
+        }
+
+        public ActionResult CrearEvento(RecetaViewModel recetavm)
+        {
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
+            if (ModelState.IsValid)
+            {
+                _cocineroService.RegistrarReceta(recetavm, idUsuario);
+                return RedirectToAction(nameof(ListarRecetas));
+            }
+            return RedirectToAction(nameof(ListarRecetas));
+        }
     }
 }

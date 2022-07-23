@@ -11,6 +11,10 @@ namespace CocinandoEnCasa.Repositories
     {
         public List<TipoReceta> ObtenerTiposReceta();
         public void Registrar(Receta receta);
+
+        public List<Receta> Listar();
+
+        public List<Receta> ListarPorCocinero(int idCocinero);
         public void SaveChanges();
     }
 }

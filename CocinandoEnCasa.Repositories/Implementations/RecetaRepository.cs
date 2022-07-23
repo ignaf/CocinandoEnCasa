@@ -14,6 +14,17 @@ namespace CocinandoEnCasa.Repositories.Implementations
         {
             _ctx = ctx;
         }
+
+        public List<Receta> Listar()
+        {
+            return _ctx.Recetas.OrderBy(r => r.Nombre).ToList();
+        }
+
+        public List<Receta> ListarPorCocinero(int idCocinero)
+        {
+            return _ctx.Recetas.Where(r => r.IdCocinero == idCocinero).ToList();
+        }
+
         public List<TipoReceta> ObtenerTiposReceta()
         {
             return _ctx.TipoRecetas.OrderBy(t => t.Nombre).ToList();

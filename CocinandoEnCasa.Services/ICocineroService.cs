@@ -12,5 +12,7 @@ namespace CocinandoEnCasa.Services
     {
         public List<TipoReceta> ObtenerTiposReceta();
         public void RegistrarReceta(RecetaViewModel recetavm, int idCocinero);
+
+        public List<Receta> ObtenerRecetas(int idCocinero);
     }
 }
