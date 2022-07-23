@@ -1,4 +1,7 @@
-﻿@model Evento
+﻿@{
+    Layout = "_LayoutCocineros";
+}
+@model Evento
 @*- nombre del evento.
     - fecha del evento.
     - descripción.
@@ -16,9 +19,9 @@
         Nombre: <input asp-for="Nombre" type="text" />
         <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
-    
-  
-    
+
+
+
     <input type="submit" name="Registrar" value="Crear" />
 </form>
 

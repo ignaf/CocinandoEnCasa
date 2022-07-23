@@ -57,7 +57,7 @@ namespace CocinandoEnCasa.Web.Controllers
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
 
-            List<Receta> recetas = _cocineroService.ObtenerRecetas(idUsuario);
+            List<Receta> recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario);
             ViewBag.Recetas = recetas;
             return View();
         }

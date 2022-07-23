@@ -17,6 +17,7 @@ namespace CocinandoEnCasa.Services.Implementations
             _recetaRepo = recetaRepo;
         }
 
+
         public List<Receta> ObtenerRecetasCocinero(int idCocinero)
         {
             return _recetaRepo.ListarPorCocinero(idCocinero);

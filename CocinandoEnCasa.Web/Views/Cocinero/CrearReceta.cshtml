@@ -1,4 +1,8 @@
-﻿@model RecetaViewModel
+﻿@{
+    Layout = "_LayoutCocineros";
+}
+
+@model RecetaViewModel
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <partial name="_ValidationScriptsPartial" />
@@ -13,7 +17,7 @@
         <span asp-validation-for="TiempoCoccion" class="text-danger"></span>
     </div>
     <div>
-        Descripción: <textarea asp-for="Descripcion" ></textarea>
+        Descripción: <textarea asp-for="Descripcion"></textarea>
         <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
     <div>
