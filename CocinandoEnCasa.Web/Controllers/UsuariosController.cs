@@ -69,7 +69,8 @@ namespace CocinandoEnCasa.Web.Controllers
             if (usuario.Perfil == 1)
             {
                 rol = "Cocinero";
-            }else if(usuario.Perfil == 2)
+            }
+            else if (usuario.Perfil == 2)
             {
                 rol = "Comensal";
             }
@@ -82,16 +83,22 @@ namespace CocinandoEnCasa.Web.Controllers
                         new Claim(ClaimTypes.Name ,usuario.Nombre),
                          new Claim("Email" ,usuario.Email),
                           new Claim("IdUsuario" ,usuario.IdUsuario.ToString()),
-                          new Claim(ClaimTypes.Role, rol),
-                         // new Claim(ClaimTypes.UserData, usuario.IdUsuario.ToString())
-
+                          new Claim(ClaimTypes.Role, rol),                                         
                 };
-                
+
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                return RedirectToAction(nameof(Home));
+                if (rol == "Cocinero")
+                {
+                    return RedirectToAction("Perfil", "Cocinero");
+                }
+                else if (rol == "Comensal")
+                {
+                    return RedirectToAction("Home","Comensal");
+                }
+                return RedirectToAction(nameof(Login));
             }
             else
             {
@@ -106,11 +113,7 @@ namespace CocinandoEnCasa.Web.Controllers
             return RedirectToAction(nameof(Default));
         }
 
-        [Authorize]
-        public IActionResult Home()
-        {
-            return View();
-        }
+        
 
     }
 }

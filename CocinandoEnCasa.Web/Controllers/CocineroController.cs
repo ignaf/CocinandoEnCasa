@@ -50,6 +50,11 @@ namespace CocinandoEnCasa.Web.Controllers
             
             return View();
         }
+        public ActionResult Perfil()
+        {
+
+            return View();
+        }
 
         public ActionResult CrearEvento()
         {
@@ -62,6 +67,7 @@ namespace CocinandoEnCasa.Web.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult CrearEvento(RecetaViewModel recetavm)
         {
             List<Claim> claims = HttpContext.User.Claims.ToList();
@@ -73,6 +79,18 @@ namespace CocinandoEnCasa.Web.Controllers
                 _cocineroService.RegistrarReceta(recetavm, idUsuario);
                 return RedirectToAction(nameof(ListarRecetas));
             }
+            return RedirectToAction(nameof(ListarRecetas));
+        }
+
+        public ActionResult CancelarEvento()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CancelarEvento(Evento evento)
+        {
             return RedirectToAction(nameof(ListarRecetas));
         }
     }
