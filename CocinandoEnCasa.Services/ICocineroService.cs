@@ -13,6 +13,9 @@ namespace CocinandoEnCasa.Services
         public List<TipoReceta> ObtenerTiposReceta();
         public void RegistrarReceta(RecetaViewModel recetavm, int idCocinero);
 
+        public void RegistrarEventoSinRecetas(EventoViewModel evento, int idCocinero);
+
+        public void AsignarRecetasAEvento(int idEvento, int idReceta);
         public List<Receta> ObtenerRecetasCocinero(int idCocinero);
     }
 }

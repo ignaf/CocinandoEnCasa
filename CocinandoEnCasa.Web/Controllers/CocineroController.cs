@@ -16,12 +16,13 @@ namespace CocinandoEnCasa.Web.Controllers
     [Authorize(Roles ="Cocinero")]
     public class CocineroController : Controller
     {
-        private ICocineroService _cocineroService;
-        private IUsuarioRepository _usuarioRepo;
+        private ICocineroService _cocineroService;       
+        private _CocinandoEnCasaDbContext _ctx;
 
-        public CocineroController(ICocineroService cocineroService)
+        public CocineroController(ICocineroService cocineroService, _CocinandoEnCasaDbContext context)
         {
             _cocineroService = cocineroService;
+            _ctx = context;
         }
         public ActionResult CrearReceta()
         {
@@ -68,17 +69,20 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearEvento(RecetaViewModel recetavm)
+        public ActionResult CrearEvento([FromForm] EventoViewModel evento)
         {
             List<Claim> claims = HttpContext.User.Claims.ToList();
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
 
-            if (ModelState.IsValid)
+            _cocineroService.RegistrarEventoSinRecetas(evento, idUsuario);
+            int i = 0;
+            foreach(var receta in evento.IdsRecetas)
             {
-                _cocineroService.RegistrarReceta(recetavm, idUsuario);
-                return RedirectToAction(nameof(ListarRecetas));
+                
             }
+
+      
             return RedirectToAction(nameof(ListarRecetas));
         }
 

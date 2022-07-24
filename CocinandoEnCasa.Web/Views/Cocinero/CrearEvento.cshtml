@@ -1,23 +1,43 @@
-﻿@model Evento
-@*- nombre del evento.
-    - fecha del evento.
-    - descripción.
-    - recetas propuestas para el evento.
-    - cantidad máxima de comensales.
-    - ubicación (dirección)
-    - foto del evento.
-    - precio (valor decimal)*@
+﻿@model EventoViewModel
+
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <partial name="_ValidationScriptsPartial" />
 
 <form action="/Cocinero/CrearEvento" method="post">
     <div>
-        Nombre: <input asp-for="Nombre" type="text" />
+        Nombre del evento: <input asp-for="Nombre" type="text" />
         <span asp-validation-for="Nombre" class="text-danger"></span>
-    </div>
+    </div><br>
+    <div>
+        Fecha: <input asp-for="Fecha" type="date" />
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div><br>
+    <div>
+        Ubicación: <input asp-for="Ubicacion" type="text" />
+        <span asp-validation-for="Ubicacion" class="text-danger"></span>
+    </div><br>
+    <div>
+        Cantidad máxima de comensales: <input asp-for="CantidadComensales" type="number" />
+        <span asp-validation-for="CantidadComensales" class="text-danger"></span>
+    </div><br>
+    <div>
+        Imagen: <input asp-for="Foto" type="file" disabled />
+        <span asp-validation-for="Foto" class="text-danger"></span>
+    </div><br>
+    <div>
+        Precio: <input asp-for="Precio" type="number" />
+        <span asp-validation-for="Precio" class="text-danger"></span>
+    </div><br>
 
-
+    @{
+        int i = 0;
+    }
+    @foreach (var receta in ViewBag.Recetas)
+    {
+        <label><input name="Recetas[i]" type="checkbox" id="cbox1" value="@receta.IdReceta">@receta.Nombre</label><br>
+        i++;
+    }
 
     <input type="submit" name="Registrar" value="Crear" />
 </form>

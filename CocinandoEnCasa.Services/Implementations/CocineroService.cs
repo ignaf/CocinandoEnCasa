@@ -12,10 +12,13 @@ namespace CocinandoEnCasa.Services.Implementations
     public class CocineroService : ICocineroService
     {
         private IRecetaRepository _recetaRepo;
-        public CocineroService(IRecetaRepository recetaRepo)
+        private IEventoRepository _eventoRepo;
+        public CocineroService(IRecetaRepository recetaRepo, IEventoRepository eventoRepo)
         {
             _recetaRepo = recetaRepo;
+            _eventoRepo = eventoRepo;
         }
+
 
 
         public List<Receta> ObtenerRecetasCocinero(int idCocinero)
@@ -26,6 +29,30 @@ namespace CocinandoEnCasa.Services.Implementations
         public List<TipoReceta> ObtenerTiposReceta()
         {
             return _recetaRepo.ObtenerTiposReceta();
+        }
+
+        public void RegistrarEventoSinRecetas(EventoViewModel eventovm, int idCocinero)
+        {
+            Evento evento = new Evento();
+            evento.Nombre = eventovm.Nombre;
+            evento.IdCocinero = idCocinero;
+            evento.Fecha = eventovm.Fecha;
+            evento.Ubicacion = eventovm.Ubicacion;
+            evento.Precio = eventovm.Precio;
+            evento.CantidadComensales = eventovm.CantidadComensales;
+            evento.Estado = 1; //pendiente
+            _eventoRepo.guardarEvento(evento);
+            _eventoRepo.SaveChanges();
+        }
+        public void AsignarRecetasAEvento(int idEvento, int idReceta)
+        {
+            EventosReceta er = new EventosReceta();
+            er.IdEvento = idEvento;
+            er.IdReceta = idReceta;
+            _eventoRepo.guardarRecetasEnEvento(er); 
+            _eventoRepo.SaveChanges();
+
+
         }
 
         public void RegistrarReceta(RecetaViewModel recetavm, int idCocinero)
