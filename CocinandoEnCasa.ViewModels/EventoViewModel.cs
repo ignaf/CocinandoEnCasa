@@ -16,7 +16,7 @@ namespace CocinandoEnCasa.ViewModels
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
-        [ValidarFechaAttribute(ErrorMessage ="No se permiten fechas anteriores al día de hoy")]
+        [ValidarFecha(ErrorMessage ="No se permiten fechas anteriores al día de hoy")]
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
@@ -32,7 +32,9 @@ namespace CocinandoEnCasa.ViewModels
         [Required(ErrorMessage = "Campo obligatorio")]
         public decimal Precio { get; set; }
 
-        [Required(ErrorMessage = "Campo obligatorio")]
-        public List<int> IdsRecetas { get; set; }
+        public string[] IdsRecetas { get; set; }
+
+        
+
     }
 }

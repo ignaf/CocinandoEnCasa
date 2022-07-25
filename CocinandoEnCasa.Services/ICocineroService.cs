@@ -15,7 +15,7 @@ namespace CocinandoEnCasa.Services
 
         public void RegistrarEventoSinRecetas(EventoViewModel evento, int idCocinero);
 
-        public void AsignarRecetasAEvento(int idEvento, int idReceta);
+        public void AsignarRecetasAEvento(EventoViewModel eventovm, int idCocinero);
         public List<Receta> ObtenerRecetasCocinero(int idCocinero);
     }
 }

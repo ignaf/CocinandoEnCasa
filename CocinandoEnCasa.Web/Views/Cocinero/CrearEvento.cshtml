@@ -1,6 +1,5 @@
 ﻿@model EventoViewModel
 
-
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <partial name="_ValidationScriptsPartial" />
 
@@ -30,16 +29,16 @@
         <span asp-validation-for="Precio" class="text-danger"></span>
     </div><br>
 
-    @{
-        int i = 0;
-    }
-    @foreach (var receta in ViewBag.Recetas)
-    {
-        <label><input name="Recetas[i]" type="checkbox" id="cbox1" value="@receta.IdReceta">@receta.Nombre</label><br>
-        i++;
-    }
+
+    @*<select asp-for="IdsRecetas" asp-items="ViewBag.Recetas" multiple >
+        <option>Seleccione entre sus recetas</option>
+    </select>*@
+    @Html.DropDownListFor(x => x.IdsRecetas, (IEnumerable<SelectListItem>)ViewBag.Recetas, new {@class ="form-control chosen-select", @multiple = true })
+
 
     <input type="submit" name="Registrar" value="Crear" />
 </form>
 
-
+<script>
+    $('.chosen-select').chosen();
+</script>

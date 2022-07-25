@@ -11,6 +11,7 @@ namespace CocinandoEnCasa.Repositories
     {
         public void guardarEvento(Evento evento);
         public void guardarRecetasEnEvento(EventosReceta eventosReceta);
+        public int buscarIdEventoCreado(int idCocinero);
         public void SaveChanges();
     }
 }

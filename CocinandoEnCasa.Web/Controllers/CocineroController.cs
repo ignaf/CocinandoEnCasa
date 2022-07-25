@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using CocinandoEnCasa.Repositories;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CocinandoEnCasa.Web.Controllers
 {
-    [Authorize(Roles ="Cocinero")]
+    [Authorize(Roles = "Cocinero")]
     public class CocineroController : Controller
     {
-        private ICocineroService _cocineroService;       
+        private ICocineroService _cocineroService;
         private _CocinandoEnCasaDbContext _ctx;
 
         public CocineroController(ICocineroService cocineroService, _CocinandoEnCasaDbContext context)
@@ -48,7 +49,7 @@ namespace CocinandoEnCasa.Web.Controllers
 
         public ActionResult ListarRecetas()
         {
-            
+
             return View();
         }
         public ActionResult Perfil()
@@ -63,28 +64,38 @@ namespace CocinandoEnCasa.Web.Controllers
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
 
-            List<Receta> recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario);
-            ViewBag.Recetas = recetas;
+            //List<Receta> recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario);
+            //List<SelectListItem> items = new List<SelectListItem>();
+
+            //foreach (var receta in recetas)
+            //{
+            //    SelectListItem item = new SelectListItem() { Text = receta.Nombre, Value = receta.IdReceta.ToString() };
+            //    items.Add(item);                
+            //}
+            //ViewBag.Recetas = items;
+            ViewBag.Recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario).Select(x => new SelectListItem
+            {
+                Text = x.Nombre,
+                Value= x.IdReceta.ToString()
+            });
             return View();
         }
 
         [HttpPost]
-        public ActionResult CrearEvento([FromForm] EventoViewModel evento)
+        public ActionResult CrearEvento(EventoViewModel evento)
         {
             List<Claim> claims = HttpContext.User.Claims.ToList();
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
 
             _cocineroService.RegistrarEventoSinRecetas(evento, idUsuario);
-            int i = 0;
-            foreach(var receta in evento.IdsRecetas)
-            {
-                
-            }
+            _cocineroService.AsignarRecetasAEvento(evento, idUsuario);
 
-      
+
             return RedirectToAction(nameof(ListarRecetas));
         }
+
+
 
         public ActionResult CancelarEvento()
         {

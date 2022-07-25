@@ -41,17 +41,22 @@ namespace CocinandoEnCasa.Services.Implementations
             evento.Precio = eventovm.Precio;
             evento.CantidadComensales = eventovm.CantidadComensales;
             evento.Estado = 1; //pendiente
+            evento.Foto = "test";
             _eventoRepo.guardarEvento(evento);
             _eventoRepo.SaveChanges();
         }
-        public void AsignarRecetasAEvento(int idEvento, int idReceta)
+        public void AsignarRecetasAEvento(EventoViewModel eventovm, int idCocinero)
         {
-            EventosReceta er = new EventosReceta();
-            er.IdEvento = idEvento;
-            er.IdReceta = idReceta;
-            _eventoRepo.guardarRecetasEnEvento(er); 
-            _eventoRepo.SaveChanges();
+            foreach (var id in eventovm.IdsRecetas)
+            {
+                EventosReceta er = new EventosReceta();
+                er.IdEvento = _eventoRepo.buscarIdEventoCreado(idCocinero);
+                er.IdReceta = int.Parse(id);
+                _eventoRepo.guardarRecetasEnEvento(er);
 
+            }
+
+            _eventoRepo.SaveChanges();
 
         }
 

@@ -20,5 +20,7 @@ namespace CocinandoEnCasa.ViewModels
         public string Ingredientes { get; set; }
         [Required(ErrorMessage = "Campo obligatorio")]
         public int IdTipoReceta { get; set; }
+
+
     }
 }

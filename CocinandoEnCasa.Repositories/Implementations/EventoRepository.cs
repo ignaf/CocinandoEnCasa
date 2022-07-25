@@ -15,6 +15,13 @@ namespace CocinandoEnCasa.Repositories.Implementations
             _ctx = ctx;
         }
 
+        public int buscarIdEventoCreado(int idCocinero)
+        {
+            int max = _ctx.Eventos.Max(e => e.IdEvento);
+            Evento ev = _ctx.Eventos.Where(e => e.IdEvento == max && e.IdCocinero == idCocinero).FirstOrDefault();
+            return ev.IdEvento;
+        }
+
         public void guardarEvento(Evento evento)
         {
             _ctx.Add(evento);
@@ -23,10 +30,11 @@ namespace CocinandoEnCasa.Repositories.Implementations
         public void guardarRecetasEnEvento(EventosReceta eventosReceta)
         {
             _ctx.Add(eventosReceta);
-            Evento evento = _ctx.Eventos.Where(e => e.IdEvento == eventosReceta.IdEventoReceta).FirstOrDefault();
+            Evento evento = _ctx.Eventos.Where(e => e.IdEvento == eventosReceta.IdEvento).FirstOrDefault();
             evento.EventosReceta.Add(eventosReceta);
-            
+
         }
+
 
         public void SaveChanges()
         {
