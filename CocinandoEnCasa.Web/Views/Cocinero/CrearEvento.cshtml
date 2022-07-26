@@ -9,7 +9,7 @@
         <span asp-validation-for="Nombre" class="text-danger"></span>
     </div><br>
     <div>
-        Fecha: <input asp-for="Fecha" type="date" />
+        Fecha: <input asp-for="Fecha" type="datetime-local" />
         <span asp-validation-for="Fecha" class="text-danger"></span>
     </div><br>
     <div>
@@ -29,11 +29,12 @@
         <span asp-validation-for="Precio" class="text-danger"></span>
     </div><br>
 
-
-    @*<select asp-for="IdsRecetas" asp-items="ViewBag.Recetas" multiple >
-        <option>Seleccione entre sus recetas</option>
-    </select>*@
-    @Html.DropDownListFor(x => x.IdsRecetas, (IEnumerable<SelectListItem>)ViewBag.Recetas, new {@class ="form-control chosen-select", @multiple = true })
+          <div>
+              Recetas: @Html.DropDownListFor(x => x.IdsRecetas, (IEnumerable<SelectListItem>)ViewBag.Recetas, new { @class = "form-control chosen-select", @multiple = true }) 
+              <span asp-validation-for="IdsRecetas" class="text-danger"></span>
+              <br />
+          </div>
+    
 
 
     <input type="submit" name="Registrar" value="Crear" />

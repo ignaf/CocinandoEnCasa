@@ -64,19 +64,10 @@ namespace CocinandoEnCasa.Web.Controllers
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
 
-            //List<Receta> recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario);
-            //List<SelectListItem> items = new List<SelectListItem>();
-
-            //foreach (var receta in recetas)
-            //{
-            //    SelectListItem item = new SelectListItem() { Text = receta.Nombre, Value = receta.IdReceta.ToString() };
-            //    items.Add(item);                
-            //}
-            //ViewBag.Recetas = items;
             ViewBag.Recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario).Select(x => new SelectListItem
             {
                 Text = x.Nombre,
-                Value= x.IdReceta.ToString()
+                Value = x.IdReceta.ToString()
             });
             return View();
         }
@@ -87,12 +78,24 @@ namespace CocinandoEnCasa.Web.Controllers
             List<Claim> claims = HttpContext.User.Claims.ToList();
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);
+            if (ModelState.IsValid)
+            {
 
-            _cocineroService.RegistrarEventoSinRecetas(evento, idUsuario);
-            _cocineroService.AsignarRecetasAEvento(evento, idUsuario);
+
+                _cocineroService.RegistrarEventoSinRecetas(evento, idUsuario);
+                _cocineroService.AsignarRecetasAEvento(evento, idUsuario);
 
 
-            return RedirectToAction(nameof(ListarRecetas));
+                return RedirectToAction(nameof(ListarRecetas));
+            }
+            ViewBag.Recetas = _cocineroService.ObtenerRecetasCocinero(idUsuario).Select(x => new SelectListItem
+            {
+                Text = x.Nombre,
+                Value = x.IdReceta.ToString()
+            });
+
+            return View();
+
         }
 
 
