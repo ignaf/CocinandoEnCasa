@@ -36,7 +36,7 @@ namespace CocinandoEnCasa.Services.Implementations
             Evento evento = new Evento();
             evento.Nombre = eventovm.Nombre;
             evento.IdCocinero = idCocinero;
-            evento.Fecha = eventovm.Fecha;
+            evento.Fecha = Convert.ToDateTime(eventovm.Fecha);
             evento.Ubicacion = eventovm.Ubicacion;
             evento.Precio = eventovm.Precio;
             evento.CantidadComensales = eventovm.CantidadComensales;
@@ -71,6 +71,11 @@ namespace CocinandoEnCasa.Services.Implementations
             receta.IdCocinero = idCocinero;
             _recetaRepo.Registrar(receta);
             _recetaRepo.SaveChanges();
+        }
+
+        public List<Evento> ObtenerEventosCocinero(int idCocinero)
+        {
+            return _eventoRepo.ListarPorCocinero(idCocinero);
         }
     }
 }

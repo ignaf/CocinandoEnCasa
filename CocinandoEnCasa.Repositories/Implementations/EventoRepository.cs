@@ -35,6 +35,10 @@ namespace CocinandoEnCasa.Repositories.Implementations
 
         }
 
+        public List<Evento> ListarPorCocinero(int idCocinero)
+        {
+            return _ctx.Eventos.Where(e => e.IdCocinero == idCocinero).ToList();
+        }
 
         public void SaveChanges()
         {

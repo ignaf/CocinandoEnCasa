@@ -49,8 +49,17 @@ namespace CocinandoEnCasa.Web.Controllers
 
         public ActionResult ListarRecetas()
         {
-
             return View();
+        }
+        public ActionResult ListarEventos()
+        {
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
+            List<Evento> eventos = _cocineroService.ObtenerEventosCocinero(idUsuario);
+
+            return View(eventos);
         }
         public ActionResult Perfil()
         {
