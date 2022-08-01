@@ -108,17 +108,12 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
 
-
-        public ActionResult CancelarEvento()
+        [Route("Cocinero/CancelarEvento/{id}")]
+        public ActionResult CancelarEvento(int id)
         {
-
+            ViewBag.Id = id;
             return View();
         }
 
-        [HttpPost]
-        public ActionResult CancelarEvento(Evento evento)
-        {
-            return RedirectToAction(nameof(ListarRecetas));
-        }
     }
 }
