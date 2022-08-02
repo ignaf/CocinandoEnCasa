@@ -17,11 +17,12 @@ namespace CocinandoEnCasa.Web.Controllers
     public class ComensalController : Controller
     {
         private IEventoService _eventoService;
+        private IComensalService _comensalService;
 
-
-        public ComensalController(IEventoService eventoService)
+        public ComensalController(IEventoService eventoService, IComensalService comensalService)
         {
             _eventoService = eventoService;
+            _comensalService = comensalService;
         }
 
         public IActionResult Home()
@@ -43,8 +44,16 @@ namespace CocinandoEnCasa.Web.Controllers
             return View();
         }
 
-        public ActionResult ReservarEvento()
+        [Route("Comensal/ReservarEvento/{idEvento}")]
+        public ActionResult ReservarEvento(int idEvento)
         {
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
+            ViewBag.IdEvento = idEvento;
+            ViewBag.IdUsuario = idUsuario;
+
             return View();
         }
 

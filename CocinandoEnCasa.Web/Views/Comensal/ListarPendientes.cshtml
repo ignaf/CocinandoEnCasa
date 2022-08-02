@@ -1,6 +1,8 @@
 ﻿@model List<Evento>
 
-@foreach(var evento in Model)
-            {
+@foreach (var evento in Model)
+{
     <h4>@evento.Nombre</h4>
-            }
+    <a href="~/Comensal/ReservarEvento/@evento.IdEvento">Reservar</a>
+
+}
