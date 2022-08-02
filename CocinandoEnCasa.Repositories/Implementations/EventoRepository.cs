@@ -34,6 +34,19 @@ namespace CocinandoEnCasa.Repositories.Implementations
 
         }
 
+        public void FinalizarEventos()
+        {
+            List<Evento> eventos = ListarPendientes();
+            foreach(var e in eventos)
+            {
+                if(e.Fecha.Date < DateTime.Today || e.Fecha.Date == DateTime.Today && e.Fecha.TimeOfDay > DateTime.Today.TimeOfDay)
+                {
+                    e.Estado = 2; //finalizado
+                }
+            }
+            SaveChanges();
+        }
+
         public void guardarEvento(Evento evento)
         {
             _ctx.Add(evento);
@@ -45,6 +58,11 @@ namespace CocinandoEnCasa.Repositories.Implementations
             Evento evento = _ctx.Eventos.Where(e => e.IdEvento == eventosReceta.IdEvento).FirstOrDefault();
             evento.EventosReceta.Add(eventosReceta);
 
+        }
+
+        public List<Evento> ListarPendientes()
+        {
+            return _ctx.Eventos.Where(e => e.Estado == 1).ToList();
         }
 
         public List<Evento> ListarPorCocinero(int idCocinero)

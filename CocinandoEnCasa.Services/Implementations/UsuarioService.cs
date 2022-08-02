@@ -12,10 +12,12 @@ namespace CocinandoEnCasa.Services.Implementations
     public class UsuarioService : IUsuarioService
     {
         private IUsuarioRepository _usuarioRepo;
+        private IEventoRepository _eventoRepo;
 
-        public UsuarioService(IUsuarioRepository usuarioRepo)
+        public UsuarioService(IUsuarioRepository usuarioRepo, IEventoRepository eventoRepo)
         {
             _usuarioRepo = usuarioRepo;
+            _eventoRepo = eventoRepo;
         }
 
         public bool CompararMails(string email)
@@ -39,6 +41,11 @@ namespace CocinandoEnCasa.Services.Implementations
             usuario.FechaRegistracion = DateTime.Parse(DateTime.Now.ToString());
             _usuarioRepo.Registrar(usuario);
             _usuarioRepo.SaveChanges();
+        }
+
+        public List<Evento> VerEventosPendientes()
+        {
+            return _eventoRepo.ListarPendientes();
         }
 
         public Usuario VerificarLogin(string email, string password)

@@ -19,5 +19,11 @@ namespace CocinandoEnCasa.Repositories
         public Evento BuscarPorId(int idEvento);
 
         public void CancelarEvento(int idEvento);
+
+        public List<Evento> ListarPendientes();
+
+        public void FinalizarEventos();
+
+ 
     }
 }

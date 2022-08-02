@@ -12,7 +12,7 @@ namespace CocinandoEnCasa.ViewModels.Validations
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             DateTime _dateStart = Convert.ToDateTime(value);
-            if (_dateStart > DateTime.Now)
+            if (_dateStart.Date > DateTime.Today)
             {
                 return ValidationResult.Success;
             }

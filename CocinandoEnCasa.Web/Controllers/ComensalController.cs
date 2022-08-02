@@ -16,15 +16,26 @@ namespace CocinandoEnCasa.Web.Controllers
     [Authorize(Roles = "Comensal")]
     public class ComensalController : Controller
     {
+        private IUsuarioService _usuarioService;
+        private IEventoService _eventoService;
 
-        public ComensalController()
+
+        public ComensalController(IUsuarioService usuarioService, IEventoService eventoService)
         {
-
+            _usuarioService = usuarioService;
+            _eventoService = eventoService;
         }
 
         public IActionResult Home()
         {
             return View();
+        }
+
+        public ActionResult ListarPendientes()
+        {
+            _eventoService.FinalizarEventos();
+            List<Evento> eventos = _usuarioService.VerEventosPendientes();
+            return View(eventos);
         }
 
         public ActionResult MisReservas()

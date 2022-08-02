@@ -18,12 +18,14 @@ namespace CocinandoEnCasa.Web.Controllers
     public class CocineroController : Controller
     {
         private ICocineroService _cocineroService;
+        private IEventoService _eventoService;
         private _CocinandoEnCasaDbContext _ctx;
 
-        public CocineroController(ICocineroService cocineroService, _CocinandoEnCasaDbContext context)
+        public CocineroController(ICocineroService cocineroService, _CocinandoEnCasaDbContext context, IEventoService eventoService)
         {
             _cocineroService = cocineroService;
             _ctx = context;
+            _eventoService = eventoService;
         }
         public ActionResult CrearReceta()
         {
@@ -53,6 +55,8 @@ namespace CocinandoEnCasa.Web.Controllers
         }
         public ActionResult ListarEventos()
         {
+            _eventoService.FinalizarEventos();
+
             List<Claim> claims = HttpContext.User.Claims.ToList();
             var claimbuscado = claims.First(c => c.Type == "IdUsuario");
             int idUsuario = int.Parse(claimbuscado.Value);

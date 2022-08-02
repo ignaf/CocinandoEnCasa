@@ -34,6 +34,7 @@ namespace CocinandoEnCasa.Web
             services.AddTransient<_CocinandoEnCasaDbContext>();
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<ICocineroService, CocineroService>();
+            services.AddScoped<IEventoService, EventoService>();
             services.AddHttpContextAccessor();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IRecetaRepository, RecetaRepository>();
