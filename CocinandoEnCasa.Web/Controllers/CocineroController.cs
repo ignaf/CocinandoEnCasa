@@ -108,12 +108,21 @@ namespace CocinandoEnCasa.Web.Controllers
         }
 
 
-        [Route("Cocinero/CancelarEvento/{id}")]
-        public ActionResult CancelarEvento(int id)
+        [Route("Cocinero/CancelarEvento/{idEvento}")]
+        public ActionResult CancelarEvento(int idEvento)
         {
-            ViewBag.Id = id;
+            List<Claim> claims = HttpContext.User.Claims.ToList();
+            var claimbuscado = claims.First(c => c.Type == "IdUsuario");
+            int idUsuario = int.Parse(claimbuscado.Value);
+
+            if(_cocineroService.CancelarEvento(idEvento, idUsuario))
+            {
+                return RedirectToAction(nameof(ListarEventos));
+            }
+
+            
             return View();
         }
 
-    }
+    } 
 }

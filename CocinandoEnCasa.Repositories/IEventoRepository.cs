@@ -15,5 +15,9 @@ namespace CocinandoEnCasa.Repositories
         public void SaveChanges();
 
         public List<Evento> ListarPorCocinero(int idCocinero);
+
+        public Evento BuscarPorId(int idEvento);
+
+        public void CancelarEvento(int idEvento);
     }
 }

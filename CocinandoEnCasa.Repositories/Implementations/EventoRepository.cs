@@ -22,6 +22,18 @@ namespace CocinandoEnCasa.Repositories.Implementations
             return ev.IdEvento;
         }
 
+        public Evento BuscarPorId(int idEvento)
+        {
+            return _ctx.Eventos.Where(e => e.IdEvento == idEvento).FirstOrDefault();
+        }
+
+        public void CancelarEvento(int idEvento)
+        {
+           Evento eventoACancelar = _ctx.Eventos.Where(e => e.IdEvento == idEvento).FirstOrDefault();
+            eventoACancelar.Estado = 0; //cancelado
+
+        }
+
         public void guardarEvento(Evento evento)
         {
             _ctx.Add(evento);

@@ -5,6 +5,12 @@
 @foreach (var evento in Model)
 {
     <h4>@evento.Nombre</h4>
-    <a href="~/Cocinero/CancelarEvento/@evento.IdEvento">Cancelar Evento</a>
+    @if (evento.Estado == 1)
+    {
+        <a href="~/Cocinero/CancelarEvento/@evento.IdEvento">Cancelar Evento</a>}
+    @if(evento.Estado==0)
+    {
+        <p>evento cancelado</p>
+    }
 
 }
