@@ -32,7 +32,8 @@ namespace CocinandoEnCasa.Web.Controllers
         public ActionResult ListarPendientes()
         {
             _eventoService.FinalizarEventos();
-            List<Evento> eventos = _eventoService.ListarPendientes();
+            List<Evento> eventos = _eventoService.FiltrarEventosConDisponibilidad();
+
             return View(eventos);
         }
 

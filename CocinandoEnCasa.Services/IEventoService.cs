@@ -23,7 +23,7 @@ namespace CocinandoEnCasa.Services
 
         public List<Evento> ListarTodos();
 
-
+        public List<Evento> FiltrarEventosConDisponibilidad();
 
 
     }

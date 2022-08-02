@@ -13,9 +13,33 @@ namespace CocinandoEnCasa.Services.Implementations
     {
 
         private IEventoRepository _eventoRepo;
-        public EventoService(IEventoRepository eventoRepo)
+        private IReservaRepository _reservaRepo;
+        public EventoService(IEventoRepository eventoRepo, IReservaRepository reservaRepo)
         {
             _eventoRepo = eventoRepo;
+            _reservaRepo = reservaRepo;
+        }
+
+        public List<Evento> FiltrarEventosConDisponibilidad()
+        {
+            List<Evento> filtrados = new List<Evento>();
+            foreach(var evento in ListarPendientes())
+            {
+                List<Reserva> reservas = _reservaRepo.BuscarPorEvento(evento.IdEvento);
+                int totalComensalesConReserva = 0;
+
+                foreach(var reserva in reservas)
+                {
+                    totalComensalesConReserva += reserva.CantidadComensales;
+                }
+
+                if (totalComensalesConReserva < evento.CantidadComensales)
+                {
+                    filtrados.Add(evento);
+                }
+
+            }
+            return filtrados;
         }
 
         public void FinalizarEventos()

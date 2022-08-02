@@ -39,6 +39,7 @@ namespace CocinandoEnCasa.Web
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IRecetaRepository, RecetaRepository>();
             services.AddScoped<IEventoRepository, EventoRepository>();
+            services.AddScoped<IReservaRepository, ReservaRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(option =>
                 {
