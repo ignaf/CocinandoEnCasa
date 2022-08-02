@@ -13,10 +13,12 @@ namespace CocinandoEnCasa.Services.Implementations
     {
         private IRecetaRepository _recetaRepo;
         private IEventoRepository _eventoRepo;
-        public CocineroService(IRecetaRepository recetaRepo, IEventoRepository eventoRepo)
+        private IEventoService _eventoService;
+        public CocineroService(IRecetaRepository recetaRepo, IEventoRepository eventoRepo, IEventoService eventoService)
         {
             _recetaRepo = recetaRepo;
             _eventoRepo = eventoRepo;
+            _eventoService = eventoService;
         }
 
 
@@ -81,24 +83,13 @@ namespace CocinandoEnCasa.Services.Implementations
         public bool CancelarEvento(int idEvento, int idCocineroLogueado)
         {
             Evento eventoACancelar = _eventoRepo.BuscarPorId(idEvento);
-            if(eventoACancelar.IdCocinero == idCocineroLogueado && ValidarFechaCancelacion(eventoACancelar.Fecha))
+            if(eventoACancelar.IdCocinero == idCocineroLogueado && _eventoService.ValidarFechaCancelacion(eventoACancelar.Fecha))
             {
                 _eventoRepo.CancelarEvento(eventoACancelar.IdEvento);
                 _eventoRepo.SaveChanges();
                 return true;
             }
             else
-            {
-                return false;
-            }
-        }
-
-        public bool ValidarFechaCancelacion(DateTime fechaEvento)
-        {
-            if (fechaEvento.Date > DateTime.Today)
-            {
-                return true;
-            }else
             {
                 return false;
             }

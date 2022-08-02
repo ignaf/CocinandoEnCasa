@@ -18,25 +18,29 @@ namespace CocinandoEnCasa.Services.Implementations
             _eventoRepo = eventoRepo;
         }
 
-      
-        public bool CancelarEvento(int idEvento, int idCocineroLogueado)
-        {
-            Evento eventoACancelar = _eventoRepo.BuscarPorId(idEvento);
-            if (eventoACancelar.IdCocinero == idCocineroLogueado && ValidarFechaCancelacion(eventoACancelar.Fecha))
-            {
-                _eventoRepo.CancelarEvento(eventoACancelar.IdEvento);
-                _eventoRepo.SaveChanges();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public void FinalizarEventos()
         {
             _eventoRepo.FinalizarEventos();
+        }
+
+        public List<Evento> ListarCancelados()
+        {
+            return _eventoRepo.ListarCancelados();
+        }
+
+        public List<Evento> ListarFinalizados()
+        {
+            return _eventoRepo.ListarFinalizados();
+        }
+
+        public List<Evento> ListarPendientes()
+        {
+            return _eventoRepo.ListarPendientes();
+        }
+
+        public List<Evento> ListarTodos()
+        {
+            return _eventoRepo.ListarTodos();
         }
 
         public bool ValidarFechaCancelacion(DateTime fechaEvento)

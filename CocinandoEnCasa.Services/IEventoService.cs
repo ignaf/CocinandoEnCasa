@@ -10,11 +10,21 @@ namespace CocinandoEnCasa.Services
 {
     public interface IEventoService
     {
-        
-        public bool CancelarEvento(int idEvento, int idCocineroLogueado);
 
         public bool ValidarFechaCancelacion(DateTime fechaEvento);
 
         public void FinalizarEventos();
+
+        public List<Evento> ListarFinalizados();
+
+        public List<Evento> ListarPendientes();
+
+        public List<Evento> ListarCancelados();
+
+        public List<Evento> ListarTodos();
+
+
+
+
     }
 }

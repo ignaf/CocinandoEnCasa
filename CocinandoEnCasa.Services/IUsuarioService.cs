@@ -13,7 +13,5 @@ namespace CocinandoEnCasa.Services
         public void Registrar(UsuarioViewModel usuariovm);
         public bool CompararMails(string email);
         public Usuario VerificarLogin(string email, string password);
-
-        public List<Evento> VerEventosPendientes();
     }
 }

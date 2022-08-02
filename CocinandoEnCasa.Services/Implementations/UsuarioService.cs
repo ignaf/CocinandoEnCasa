@@ -43,10 +43,7 @@ namespace CocinandoEnCasa.Services.Implementations
             _usuarioRepo.SaveChanges();
         }
 
-        public List<Evento> VerEventosPendientes()
-        {
-            return _eventoRepo.ListarPendientes();
-        }
+        
 
         public Usuario VerificarLogin(string email, string password)
         {

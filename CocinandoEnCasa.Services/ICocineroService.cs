@@ -21,9 +21,6 @@ namespace CocinandoEnCasa.Services
         public List<Evento> ObtenerEventosCocinero(int idCocinero);
 
         public bool CancelarEvento(int idEvento, int idCocineroLogueado);
-
-        public bool ValidarFechaCancelacion(DateTime fechaEvento);
-
         
     }
 }

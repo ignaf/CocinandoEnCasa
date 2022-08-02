@@ -21,6 +21,10 @@ namespace CocinandoEnCasa.Repositories
         public void CancelarEvento(int idEvento);
 
         public List<Evento> ListarPendientes();
+        public List<Evento> ListarCancelados();
+        public List<Evento> ListarFinalizados();
+        public List<Evento> ListarTodos();
+
 
         public void FinalizarEventos();
 

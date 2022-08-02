@@ -60,6 +60,18 @@ namespace CocinandoEnCasa.Repositories.Implementations
 
         }
 
+        public List<Evento> ListarCancelados()
+        {
+            return _ctx.Eventos.Where(e => e.Estado == 0).ToList();
+
+        }
+
+        public List<Evento> ListarFinalizados()
+        {
+            return _ctx.Eventos.Where(e => e.Estado == 2).ToList();
+
+        }
+
         public List<Evento> ListarPendientes()
         {
             return _ctx.Eventos.Where(e => e.Estado == 1).ToList();
@@ -68,6 +80,11 @@ namespace CocinandoEnCasa.Repositories.Implementations
         public List<Evento> ListarPorCocinero(int idCocinero)
         {
             return _ctx.Eventos.Where(e => e.IdCocinero == idCocinero).ToList();
+        }
+
+        public List<Evento> ListarTodos()
+        {
+            return _ctx.Eventos.ToList();
         }
 
         public void SaveChanges()
